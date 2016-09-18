@@ -10,7 +10,7 @@ function LunchCheckController($scope, $filter) {
   $scope.items = "";
 
   $scope.checkApp = function () {
-      if ($scope.items = ""){
+      if ($scope.items == ""){
         $scope.msg = "Please enter data first";
       }
       else{
