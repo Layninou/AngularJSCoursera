@@ -15,6 +15,7 @@ function LunchCheckController($scope, $filter) {
       }
       else{
         var itemsList = $scope.items.split(",");
+        console.log(itemsList);
         if (itemsList.length <= 3){$scope.msg = "Enjoy!";}
         else {$scope.msg ="Too Much!";}
       }
