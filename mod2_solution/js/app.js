@@ -19,7 +19,7 @@ angular.module("ShoppingListCheckOff", [])
 .controller('AlreadyBoughtShoppingController',AlreadyBoughtShoppingController)
 .service('ShoppingListCheckOffService', ShoppingListCheckOffService);
 
-ToBuyShoppingController.$inject['ShoppingListCheckOffService'];
+ToBuyShoppingController.$inject = ['ShoppingListCheckOffService'];
 function ToBuyShoppingController(ShoppingListCheckOffService) {
   var itemToBuy = this;
 
@@ -34,7 +34,7 @@ function ToBuyShoppingController(ShoppingListCheckOffService) {
   };
 }
 
-AlreadyBoughtShoppingController.$inject['ShoppingListCheckOffService'];
+AlreadyBoughtShoppingController.$inject = ['ShoppingListCheckOffService'];
 function AlreadyBoughtShoppingController(ShoppingListCheckOffService) {
   var itemBought = this;
 
