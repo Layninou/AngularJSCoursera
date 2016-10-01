@@ -1,0 +1,7 @@
+<ol>
+  <li ng-if="found.length == 0" class="list-group-item list-group-item-danger text-center"> Nothing found!</li>
+  <li ng-repeat="item in list.items">
+    <span>{{item.name}}:</span> {{item.description}}
+    <button ng-click="list.onRemove({index: $index})">Don't want this one!</button>
+  </li>
+</ol>
