@@ -35,8 +35,8 @@ function NarrowItDownController(MenuSearchService){
     MenuSearchService.getMatchedMenuItems(searchTerm)
       .then(function (answer) {
         narrow.found = answer;
-        // console.log("narrow.found in the search function");
-        // console.log(narrow.found);
+        console.log("narrow.found in the search function");
+        console.log(narrow.found);
       })
       .catch(function (error) {
         console.log("une erreur est survenu durant search()");
@@ -57,17 +57,22 @@ function MenuSearchService($http, ApiBasePath) {
     return $http({
       method: "GET",
       url: ApiBasePath,
-      params: {
-        category: searchTerm
-      }
+      // params: {
+      //   category: searchTerm
+      // }
     }).then(function result(response){
       // process result and only keep items that match
       var foundItems = new Array();
 
       // I use a log to understand my object and after i precise what i will show
       var preFoundItems = response.data.menu_items;
+
       for (var i = 0; i < preFoundItems.length; i++) {
-        foundItems.push(preFoundItems[i]);
+        //i search if the terms use is in the description
+        var desc = preFoundItems[i].description;
+        if(desc.toLowerCase().indexOf(searchTerm.toLowerCase())!=-1){
+          foundItems.push(preFoundItems[i]);
+        }
       }
 
       //soluce on the forum
