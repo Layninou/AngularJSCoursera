@@ -20,9 +20,9 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   })
 
   //categories page
-  .state('categories',{
-    url: '/categories',
-    templateUrl: 'snippet/categories.html',
+  .state('category',{
+    url: '/category',
+    templateUrl: 'snippet/category.html',
     controller: 'CategoryCtrl as catList',
     resolve: {
       menuCategory: ['MenuDataService', function (MenuDataService){
