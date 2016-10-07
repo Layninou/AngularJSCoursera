@@ -34,7 +34,8 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   //items pages
   .state('items',{
     url: '/items/{itemsCategory}',
-    templateUrl: 'snippet/items',
+    templateUrl: 'snippet/items.html',
+    controller: 'ItemsCtrl as cat',
     resolve: {
       items: ['$stateParams', 'MenuDataService',
               function ($stateParams, MenuDataService) {
