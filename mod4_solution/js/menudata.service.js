@@ -19,20 +19,26 @@ function MenuDataService($http, $q) {
     })
     .then( function (result) {
       deferred.resolve(result.data);
-      console.log("And the result is :");
-      console.log(result.data);
     });
 
-    console.log(deferred.promise);
     return deferred.promise;
   };
 
   //return a promise with all items in a categories
   service.getItemsForCategory = function (categoryShortName) {
     console.log("start the service items in categories");
-    console.log("the choice is : " + categoryShortName);
     var deferred = $q.defer();
     //if categoryShortName is not defined
+    if (categoryShortName == "") {
+      console.log("no choice, search a random choice");
+      var choices = [];
+
+      choices = ['L','A','B','SP','C','F','V','DK','VG','CU','NL','PF','FR','CM','FY','SO','DS','D','SR'];
+
+      categoryShortName = choices[Math.floor(Math.random()*choices.length)];
+    }
+
+    console.log("the choice is : " + categoryShortName);
 
     //the https returned
     $http({
